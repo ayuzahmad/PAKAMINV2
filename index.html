@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAK AMIN - Simulasi Interaktif</title>
+    <link rel="icon" type="image/png" href="logopakamin.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #000000;
+            font-family: Arial, sans-serif;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Pesan Putar Layar (Hanya Muncul di HP/Tablet Posisi Tegak) */
+        #rotate-notice {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #111111;
+            color: #ffffff;
+            z-index: 9999;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        #rotate-notice icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        /* Jika layar perangkat dalam posisi Portrait (Tegak) */
+        @media screen and (orientation: portrait) and (max-width: 900px) {
+            #rotate-notice {
+                display: flex;
+            }
+            iframe {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Peringatan jika HP tegak -->
+    <div id="rotate-notice">
+        <div style="font-size: 40px; margin-bottom: 10px;">🔄</div>
+        <h2>Harap Putar Layar HP Anda</h2>
+        <p style="margin-top: 8px; color: #ccc;">Ubah posisi HP menjadi <b>Landscape (Tidur)</b> untuk memulai simulasi PAK AMIN.</p>
+    </div>
+
+    <!-- Frame Simulasi Storyline -->
+    <iframe src="story.html" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+
+</body>
+</html>
